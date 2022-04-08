@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cakculadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="calc-base">
+        <h1> Calculadora </h1>
+        <p id="screen">0</p>
+
+        <section id="number">
+            <button onclick="zero()"> C </button>
+            <button onclick="del()"> < </button>
+            <button onclick="operation('/')"> / </button>
+            <button onclick="operation('x')" > x </button>
+
+            <button onclick="number(7)"> 7 </button>
+            <button onclick="number(8)"> 8 </button>
+            <button onclick="number(9)"> 9 </button>
+            <button onclick="operation('-')"> - </button>
+
+            <button onclick="number(4)"> 4 </button>
+            <button onclick="number(5)"> 5 </button>
+            <button onclick="number(6)"> 6 </button>
+            <button onclick="operation('+')"> + </button>
+
+            <button onclick="number(1)"> 1 </button>
+            <button onclick="number(2)"> 2 </button>
+            <button onclick="number(3)"> 3 </button>
+            <button class="equals" onclick="result()"> = </button>
+
+            <button class="zero" onclick="number(0)"> 0 </button>
+            <button onclick="number('.')" > . </button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #1d1d1d;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#calc-base{
+   /* background:linear-gradient(45deg, rgba(rgba(255, 255, 255, 0.2) 5% 255,255,255,0.7) 50%, rgba(255, 255, 255, 0.2) 90%);
+    */
+    background: linear-gradient(145deg, rgba(255,255,255,0.2) 20%, rgba(255,255,255,0.5) 25%, rgba(255,255,255,0.2) 40%);
+    background-size: 300% 300%;
+    box-shadow: 10px 10px 10px 10px rgb(0, 0, 0, 0.5);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 270px;
+    border-radius: 20px;
+    padding: 5px 10px;
+
+    animation: light 1s linear infinite;
+}
+/*@keyframes light{
+    0%{
+        background-position: 200% 200%;
+        
+    }
+    100%{
+        background-position: 0% 0%;
+    }
+}
+*/
+h1{
+    margin: 10px;
+    color: white;
+}
+
+#screen{
+    background: linear-gradient(320deg, rgb(48, 48, 48) 20%, rgb(27, 27, 27) 49%);
+    border: 2px solid #1d1d1d ;
+    color: white;
+
+    
+    width: 80%;
+    height: 40px;
+
+    padding: 0px 10px;
+    margin-bottom: 20px;
+
+    text-align: end;
+    font-size: 1.8em;
+}
+
+#number{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom:30px;
+}
+
+#number button{
+    height: 44.25px;
+    width: 44.25px;
+
+    border: none;
+    border-bottom: 3px solid #1d1d1d ;
+    border-right: 3px solid #1d1d1d ;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.575);
+    color: white;
+
+    background: linear-gradient(140deg, rgba(77,77,77,1) 20%, rgba(9,9,9,1) 49%);
+
+    cursor: pointer;
+
+    transition: all 0.5s;
+}
+#number button:hover{
+    background: linear-gradient(347deg, rgba(167,232,255,1) 5%, rgba(9,67,99,1) 49%);
+
+    border-bottom: 3px solid rgba(9,67,99,1) ;
+    border-right: 3px solid rgba(9,67,99,1) ;
+    box-shadow: 1px 1px 1px 1px rgba(167,232,255,1);
+}
+
+#number .equals{
+    grid-column: 4;
+    grid-row: 4 / 6;
+
+    height: 100%;
+}
+
+#number .zero{
+    grid-column: 1 / 3;
+    grid-row: 5;
+    width: 100%;
+}
