@@ -5,7 +5,8 @@ let currentValue = 0;   // ÚLTIMO VALOR DIGITADO
 let memoryValue = 0;    // VALOR DA MEMÓRIA
 
 const screen = document.querySelector('#screen'); // DISPLAY
-
+let resultSwitch = false;
+let opSwitch = true;
 
 //NÚMEROS DIGITADOS && APARECER NO DISPLAY
 function number(n){
@@ -33,36 +34,33 @@ function number(n){
 
 function operation(opr){
     currentValue = concat();
-
-    if(memoryValue != 0){
-        if(op == "/"){
-            memoryValue /= currentValue;
+    
+        if(op != '' || resultSwitch == true){
+            if(op == "/"){
+                memoryValue /= currentValue;
+            }
+            else if(op == "x"){
+                memoryValue *= currentValue;
+            }
+            else if(op == '-'){
+                memoryValue -= currentValue;
+            }
+            else if(op == '+'){
+                memoryValue += currentValue;
+            }
         }
-        else if(op == "x"){
-            memoryValue *= currentValue;
-        }
-        else if(op == '-'){
-            memoryValue -= currentValue;
-        }
-        else if(op == '+'){
-            memoryValue += currentValue;
-        }
-    }
 
-    if(op == '' && memoryValue == 0){
-        memoryValue = currentValue;
-    }
-    //TESTE
-    console.log("MEMORIA " + memoryValue)
-    console.log("ATUAL " + currentValue)
-    console.log("OP " + op)
-    console.log('---------------------')
+        if(op == '' && memoryValue == 0){
+            memoryValue = currentValue;
+        }
 
-    op = opr;
+        resultSwitch = false;
+        op = opr;
 
-    screenNumber = [];
-    screen.innerHTML = memoryValue;
+        screenNumber = [];
+        screen.innerHTML = memoryValue;
 }
+
 function result(){
     //Pegar valor atual
     //Fazer operação com a memoria
@@ -73,6 +71,7 @@ function result(){
     operation('');
     op = '¨';
     currentValue = 0;
+    resultSwitch = true;
 
     console.log("MEMORIA " + memoryValue)
     console.log("ATUAL " + currentValue)
@@ -115,18 +114,24 @@ function zero(){
     screen.innerHTML = memoryValue;
 }
 function del(){
+    console.log(screenNumber)
+    console.log('current ' + currentValue)
     if(screenNumber.length > 0){
         screenNumber.pop();
-    }
 
-    currentValue = concat();
-    
-    if(currentValue == 0){
-        screen.innerHTML = 0;
+        if(screenNumber.length == 0){
+            screen.innerHTML = 0;
+        }
+        else{
+            currentValue = concat();
+            screen.innerHTML = currentValue;
+        }
     }
     else{
-        screen.innerHTML = currentValue;
+        alert('ok')
     }
+
+    console.log(screenNumber)
 };
 
 // FUNÇÃO PARA CONCATENAR VALORES
@@ -141,10 +146,17 @@ function concat(){
 };
 
 
-/* BUGS EM CORREÇÃO:
+/*
+    //BUGS EM CORREÇÃO:
 
- • Digitar valor "0" várias vezes
- • Digitar mais de 12 caracteres
- • Atualizar tela ao apagar número
+    • Digitar mais de 12 caracteres
+    • NaN quando aperta em algum operador
 
+ 
+    //BUGS CORRIGIDOS
+    • ~ok~ Digitar valor "0" várias vezes
+    • ~ok~ Erro de calculo quando da "0"
+    • ~ok~ Atualizar tela ao apagar número
+
+    //DESIGN AINDA EM DESENVOLVIMENTO
 */
